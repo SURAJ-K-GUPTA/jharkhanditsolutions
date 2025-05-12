@@ -174,7 +174,7 @@ export default function Home() {
             <div className="font-bold mb-2 text-zinc-900 dark:text-white">Our success is fueled by our commitment to the five core values :-</div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 text-zinc-700 dark:text-zinc-200">
               {whyChoose.values.map((val, i) => (
-                <div key={val} className="flex items-start gap-2">
+                <div key={i} className="flex items-start gap-2">
                   <CheckCircle2 className="text-lime-500 mt-1" size={20} />
                   <span>{val}</span>
                 </div>

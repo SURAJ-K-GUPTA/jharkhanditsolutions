@@ -1,4 +1,4 @@
-import { Facebook, Youtube, Linkedin, Mail, Phone, ArrowRight } from 'lucide-react';
+import { Facebook, Youtube, Linkedin } from 'lucide-react';
 
 const recentPosts = [
   'Poetry App Design Development',
