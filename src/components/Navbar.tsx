@@ -1,7 +1,8 @@
-import { Sun, Moon, Facebook, Twitter, Instagram, Coffee, MapPin, Phone, Mail } from 'lucide-react';
+import { Sun, Moon, Facebook, Twitter, Instagram, Coffee, MapPin, Phone, Mail, Menu } from 'lucide-react';
 import { Button } from './ui/button';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
 
 const navLinks = [
   { name: 'Home', href: '/' },
@@ -35,8 +36,8 @@ export function Navbar() {
     <>
       <nav className="w-full bg-orange-500 dark:bg-zinc-900 text-white dark:text-zinc-100 shadow-md sticky top-0 z-50">
         <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-2">
-          {/* Left: Nav Links */}
-          <div className="flex items-center gap-4">
+          {/* Desktop Nav */}
+          <div className="hidden md:flex items-center gap-4">
             {navLinks.map((link, idx) => (
               <div key={link.name}>
                 <Link
@@ -48,8 +49,31 @@ export function Navbar() {
               </div>
             ))}
           </div>
+          {/* Mobile Hamburger */}
+          <div className="md:hidden flex items-center">
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" className="text-white">
+                  <Menu size={28} />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="left" className="bg-orange-500 dark:bg-zinc-900 w-64 p-0">
+                <div className="flex flex-col gap-2 mt-8">
+                  {navLinks.map((link) => (
+                    <Link
+                      key={link.name}
+                      to={link.href}
+                      className="block px-6 py-3 text-lg font-semibold hover:bg-orange-600 dark:hover:bg-zinc-800 transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  ))}
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
           {/* Center: Socials */}
-          <div className="flex items-center gap-2">
+          <div className="hidden md:flex items-center gap-2">
             <span className="font-bold mr-2 hidden md:inline">Follow Us:</span>
             {socialLinks.map(({ icon: Icon, href, color }, idx) => (
               <div key={idx} className="flex items-center">
@@ -69,7 +93,7 @@ export function Navbar() {
           </div>
           {/* Right: CTA + Dark Mode */}
           <div className="flex items-center gap-2">
-            <div>
+            <div className="hidden md:block">
               <Button className="bg-lime-400 text-black font-bold hover:bg-lime-500 transition-colors">
                 Let's Have a Cup of Coffee?
               </Button>
@@ -88,35 +112,34 @@ export function Navbar() {
       </nav>
       {/* Info Bar Below Navbar */}
       <div className="w-full bg-gray-50 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-100 border-b border-gray-200 dark:border-zinc-700">
-        <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-3 gap-4">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-4 py-3 gap-4 text-center md:text-left">
           {/* Logo */}
-          <div className="flex items-center min-w-[200px]">
-            {/* Replace with your logo image if available */}
+          <div className="flex items-center min-w-[120px] justify-center md:justify-start w-full md:w-auto mb-2 md:mb-0">
             <div className="flex flex-col items-center">
-              <span className="text-5xl font-extrabold text-orange-500 leading-none">JIS</span>
+              <span className="text-4xl md:text-5xl font-extrabold text-orange-500 leading-none">JIS</span>
               <span className="text-xs text-cyan-600 font-semibold tracking-wide -mt-1">JHARKHAND IT SOLUTIONS</span>
             </div>
           </div>
           {/* Address */}
-          <div className="flex items-center gap-2 flex-1 justify-center border-l border-r border-gray-300 dark:border-zinc-600 px-6 min-w-[300px]">
+          <div className="flex items-center gap-2 flex-1 justify-center border-l border-r border-gray-300 dark:border-zinc-600 px-2 md:px-6 min-w-[180px]">
             <MapPin className="text-zinc-500 mr-2" />
-            <div className="text-sm text-zinc-700 dark:text-zinc-200">
+            <div className="text-xs md:text-sm text-zinc-700 dark:text-zinc-200">
               <div>Riverview Colony, Near Vidya Vikas Public School,</div>
               <div>Boriya Road,Morabadi,Ranchi-834006</div>
             </div>
           </div>
           {/* Phone & Email */}
-          <div className="flex items-center gap-8 min-w-[350px] justify-end">
-            <div className="flex items-center gap-2 border-r border-gray-300 dark:border-zinc-600 pr-6">
+          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-8 min-w-[180px] justify-end">
+            <div className="flex items-center gap-2 border-r border-gray-300 dark:border-zinc-600 pr-0 md:pr-6">
               <Phone className="text-zinc-500 mr-2" />
-              <div className="text-sm">
+              <div className="text-xs md:text-sm">
                 <div>+91 9031143738</div>
                 <div>+91 7033333433</div>
               </div>
             </div>
             <div className="flex items-center gap-2">
               <Mail className="text-zinc-500 mr-2" />
-              <div className="text-sm">
+              <div className="text-xs md:text-sm">
                 <div>info@jharkhanditsolutions.com</div>
                 <div>jharkhanditsolutions@gmail.com</div>
               </div>

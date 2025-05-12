@@ -103,7 +103,7 @@ export default function Home() {
   return (
     <div className="w-full">
       {/* Hero Section */}
-      <section className="relative w-full h-[350px] md:h-[500px] flex items-center justify-center bg-zinc-100 overflow-hidden">
+      <section className="relative w-full h-[250px] sm:h-[350px] md:h-[500px] flex items-center justify-center bg-zinc-100 overflow-hidden">
         {heroImages.map((img, idx) => (
           <img
             key={img}
@@ -113,10 +113,10 @@ export default function Home() {
             style={{ transition: 'opacity 0.7s' }}
           />
         ))}
-        <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center z-20">
-          <h1 className="text-3xl md:text-5xl font-bold text-white mb-6 drop-shadow-lg text-center">Empowering Your Digital Presence</h1>
+        <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center z-20 px-2">
+          <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-6 drop-shadow-lg text-center">Empowering Your Digital Presence</h1>
           <Button
-            className="bg-orange-500 text-white font-bold px-8 py-3 text-lg rounded shadow-lg hover:bg-orange-600"
+            className="bg-orange-500 text-white font-bold px-6 sm:px-8 py-2 sm:py-3 text-base sm:text-lg rounded shadow-lg hover:bg-orange-600"
             onClick={() => navigate('/get-quote')}
           >
             Contact Us
@@ -125,15 +125,15 @@ export default function Home() {
       </section>
 
       {/* Our Services and Expertise */}
-      <section className="py-12 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-zinc-800">Our Services and Expertise</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+      <section className="py-8 sm:py-12 bg-white">
+        <div className="max-w-6xl mx-auto px-2 sm:px-4">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-6 sm:mb-8 text-zinc-800">Our Services and Expertise</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
             {services.map((service) => (
-              <div key={service.title} className="bg-zinc-50 rounded-xl shadow hover:shadow-lg p-6 flex flex-col items-center text-center border border-zinc-100 transition-all">
+              <div key={service.title} className="bg-zinc-50 rounded-xl shadow hover:shadow-lg p-4 sm:p-6 flex flex-col items-center text-center border border-zinc-100 transition-all">
                 <div className="mb-4">{service.icon}</div>
-                <h3 className="font-semibold text-lg mb-2 text-zinc-800">{service.title}</h3>
-                <p className="text-zinc-500 text-sm">{service.desc}</p>
+                <h3 className="font-semibold text-base sm:text-lg mb-2 text-zinc-800">{service.title}</h3>
+                <p className="text-zinc-500 text-xs sm:text-sm">{service.desc}</p>
               </div>
             ))}
           </div>
@@ -141,13 +141,13 @@ export default function Home() {
       </section>
 
       {/* Process/Steps Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="relative flex flex-col md:flex-row items-center justify-between gap-12 md:gap-0">
+      <section className="py-10 sm:py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-2 sm:px-4">
+          <div className="relative flex flex-col md:flex-row items-center justify-between gap-8 sm:gap-12 md:gap-0">
             {process.map((step, idx) => (
-              <div key={step.title} className="flex flex-col items-center text-center flex-1 relative">
-                <div className="relative mb-6 flex flex-col items-center">
-                  <div className={`w-36 h-36 md:w-40 md:h-40 rounded-full border-4 flex items-center justify-center ${idx % 2 === 0 ? 'bg-orange-500 border-orange-200' : 'bg-cyan-400 border-cyan-200'}`}>
+              <div key={step.title} className="flex flex-col items-center text-center flex-1 relative mb-8 md:mb-0">
+                <div className="relative mb-4 sm:mb-6 flex flex-col items-center">
+                  <div className={`w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full border-4 flex items-center justify-center ${idx % 2 === 0 ? 'bg-orange-500 border-orange-200' : 'bg-cyan-400 border-cyan-200'}`}>
                     {step.icon}
                   </div>
                   {/* Connector line, only for non-last step */}
@@ -155,8 +155,8 @@ export default function Home() {
                     <div className={`hidden md:block absolute top-1/2 right-[-50%] w-full h-0.5 border-t-2 border-dashed z-0 ${idx % 2 === 0 ? 'border-orange-300' : 'border-cyan-300'}`} style={{ left: '100%', width: '80px', transform: 'translateY(-50%)' }} />
                   )}
                 </div>
-                <h4 className="text-xl font-bold mb-2 text-zinc-700">{step.title}</h4>
-                <p className="text-zinc-500 text-sm">{step.desc}</p>
+                <h4 className="text-lg sm:text-xl font-bold mb-2 text-zinc-700">{step.title}</h4>
+                <p className="text-zinc-500 text-xs sm:text-sm">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -164,19 +164,19 @@ export default function Home() {
       </section>
 
       {/* Why Choose JIS Section */}
-      <section className="py-16 bg-zinc-50 dark:bg-zinc-900">
-        <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
+      <section className="py-10 sm:py-16 bg-zinc-50 dark:bg-zinc-900">
+        <div className="max-w-6xl mx-auto px-2 sm:px-4 flex flex-col md:flex-row items-center gap-8 sm:gap-12">
           {/* Left: Text */}
-          <div className="flex-1">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-zinc-900 dark:text-white leading-tight">{whyChoose.heading}</h2>
-            <div className="text-lg font-semibold mb-4 text-orange-500">{whyChoose.subheading}</div>
-            <p className="mb-4 text-zinc-700 dark:text-zinc-200">{whyChoose.description} <span className="font-semibold text-zinc-900 dark:text-white">Read more…</span></p>
-            <div className="font-bold mb-2 text-zinc-900 dark:text-white">Our success is fueled by our commitment to the five core values :-</div>
+          <div className="flex-1 mb-8 md:mb-0">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-zinc-900 dark:text-white leading-tight">{whyChoose.heading}</h2>
+            <div className="text-base sm:text-lg font-semibold mb-4 text-orange-500">{whyChoose.subheading}</div>
+            <p className="mb-4 text-zinc-700 dark:text-zinc-200 text-xs sm:text-base">{whyChoose.description} <span className="font-semibold text-zinc-900 dark:text-white">Read more…</span></p>
+            <div className="font-bold mb-2 text-zinc-900 dark:text-white text-xs sm:text-base">Our success is fueled by our commitment to the five core values :-</div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 text-zinc-700 dark:text-zinc-200">
               {whyChoose.values.map((val, i) => (
                 <div key={i} className="flex items-start gap-2">
                   <CheckCircle2 className="text-lime-500 mt-1" size={20} />
-                  <span>{val}</span>
+                  <span className="text-xs sm:text-base">{val}</span>
                 </div>
               ))}
             </div>
@@ -184,20 +184,20 @@ export default function Home() {
           {/* Right: Illustration */}
           <div className="flex-1 flex items-center justify-center">
             {/* Replace with your own SVG or image if available */}
-            <img src="/rocket-illustration.svg" alt="Rocket Launch" className="w-full max-w-md" />
+            <img src="/rocket-illustration.svg" alt="Rocket Launch" className="w-40 sm:w-full max-w-md" />
           </div>
         </div>
       </section>
 
       {/* What They Said Section */}
-      <section className="py-16 bg-cyan-400 dark:bg-cyan-700">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-2 text-white">What They Said</h2>
-          <div className="text-center text-white mb-8">JIS is one of the most trusted offshore development companies today</div>
-          <div className="relative flex items-center justify-center">
+      <section className="py-10 sm:py-16 bg-cyan-400 dark:bg-cyan-700">
+        <div className="max-w-6xl mx-auto px-2 sm:px-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-2 text-white">What They Said</h2>
+          <div className="text-center text-white mb-6 sm:mb-8 text-xs sm:text-base">JIS is one of the most trusted offshore development companies today</div>
+          <div className="relative flex flex-col sm:flex-row items-center justify-center gap-4">
             {/* Carousel Controls */}
             <button
-              className="absolute left-0 top-1/2 -translate-y-1/2 bg-cyan-600/70 hover:bg-cyan-800 text-white rounded-full p-2 z-10"
+              className="absolute left-2 sm:left-0 top-1/2 -translate-y-1/2 bg-cyan-600/70 hover:bg-cyan-800 text-white rounded-full p-2 z-10"
               onClick={() => setTestimonialIdx((testimonialIdx - 1 + testimonials.length) % testimonials.length)}
               aria-label="Previous testimonial"
             >
@@ -207,23 +207,23 @@ export default function Home() {
               {testimonials.map((t, i) => (
                 <div
                   key={t.name}
-                  className={`transition-all duration-500 ${i === testimonialIdx ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'} w-full max-w-md mx-2 bg-white/70 dark:bg-zinc-900/80 rounded-lg shadow-lg p-8 flex flex-col items-center`}
+                  className={`transition-all duration-500 ${i === testimonialIdx ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'} w-full max-w-md mx-2 bg-white/70 dark:bg-zinc-900/80 rounded-lg shadow-lg p-4 sm:p-8 flex flex-col items-center`}
                   style={{ position: i === testimonialIdx ? 'relative' : 'absolute' }}
                 >
-                  <div className="text-lg font-bold text-cyan-700 dark:text-cyan-300 mb-2">"{t.quote}"</div>
-                  <div className="text-zinc-800 dark:text-zinc-100 mb-4 text-center">{t.text}</div>
+                  <div className="text-base sm:text-lg font-bold text-cyan-700 dark:text-cyan-300 mb-2">"{t.quote}"</div>
+                  <div className="text-zinc-800 dark:text-zinc-100 mb-4 text-center text-xs sm:text-base">{t.text}</div>
                   <div className="flex items-center gap-4 mt-4">
-                    <img src={t.img} alt={t.name} className="w-14 h-14 rounded-full border-2 border-cyan-400 object-cover" />
+                    <img src={t.img} alt={t.name} className="w-10 h-10 sm:w-14 sm:h-14 rounded-full border-2 border-cyan-400 object-cover" />
                     <div>
-                      <div className="font-bold text-zinc-900 dark:text-white">{t.name}</div>
-                      <div className="text-sm text-zinc-600 dark:text-zinc-300">{t.title}</div>
+                      <div className="font-bold text-zinc-900 dark:text-white text-xs sm:text-base">{t.name}</div>
+                      <div className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-300">{t.title}</div>
                     </div>
                   </div>
                 </div>
               ))}
             </div>
             <button
-              className="absolute right-0 top-1/2 -translate-y-1/2 bg-cyan-600/70 hover:bg-cyan-800 text-white rounded-full p-2 z-10"
+              className="absolute right-2 sm:right-0 top-1/2 -translate-y-1/2 bg-cyan-600/70 hover:bg-cyan-800 text-white rounded-full p-2 z-10"
               onClick={() => setTestimonialIdx((testimonialIdx + 1) % testimonials.length)}
               aria-label="Next testimonial"
             >

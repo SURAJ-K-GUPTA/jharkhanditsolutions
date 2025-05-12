@@ -48,13 +48,13 @@ export function ServicesNavbar() {
 
   return (
     <div className="w-full bg-cyan-400 py-2 flex justify-center items-center">
-      <div className="w-full max-w-6xl flex items-center justify-between px-2">
+      <div className="w-full max-w-6xl flex flex-col md:flex-row items-center justify-between px-2 gap-2 md:gap-0">
         {/* Nav Items */}
-        <div className="flex gap-3 items-center flex-wrap">
+        <div className="flex gap-2 md:gap-3 items-center flex-nowrap overflow-x-auto md:overflow-visible w-full md:w-auto pb-2 md:pb-0 scrollbar-thin scrollbar-thumb-cyan-300 scrollbar-track-cyan-100">
           {services.map((service) => (
             <Popover key={service.label}>
               <PopoverTrigger asChild>
-                <Button variant="ghost" className="text-white font-semibold text-xs md:text-sm px-1 md:px-2 py-1 hover:bg-cyan-500 focus:bg-cyan-600">
+                <Button variant="ghost" className="text-white font-semibold text-xs md:text-sm px-1 md:px-2 py-1 hover:bg-cyan-500 focus:bg-cyan-600 whitespace-nowrap">
                   {service.label}
                 </Button>
               </PopoverTrigger>
@@ -71,9 +71,9 @@ export function ServicesNavbar() {
           ))}
         </div>
         {/* Divider */}
-        <div className="h-6 w-px bg-white/60 mx-2" />
+        <div className="hidden md:block h-6 w-px bg-white/60 mx-2" />
         {/* Icons */}
-        <div className="flex items-center gap-2 md:gap-4">
+        <div className="flex items-center gap-2 md:gap-4 mt-2 md:mt-0">
           {/* Search */}
           <Button variant="ghost" className="p-2" onClick={() => setSearchOpen(true)}>
             <Search className="text-black" size={20} />

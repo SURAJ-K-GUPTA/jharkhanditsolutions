@@ -51,7 +51,7 @@ const socials = [
 export function Footer() {
   return (
     <footer className="w-full bg-zinc-900 text-zinc-100 pt-12 pb-4 border-t border-zinc-800">
-      <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-5 gap-8 border-b border-zinc-800 pb-10">
+      <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 border-b border-zinc-800 pb-10">
         {/* Recent Posts */}
         <div>
           <h4 className="font-bold mb-4 text-white">Recent Posts</h4>
